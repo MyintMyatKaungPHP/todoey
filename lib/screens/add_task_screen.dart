@@ -45,7 +45,9 @@ class AddTaskScreen extends StatelessWidget {
               ),
               SizedBox(height: 10,),
               ElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+
+                },
                 child: Text('Add'),
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
