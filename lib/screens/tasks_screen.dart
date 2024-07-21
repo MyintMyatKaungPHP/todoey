@@ -4,8 +4,6 @@ import 'package:todoey/screens/add_task_screen.dart';
 import 'package:todoey/widgets/tasks_list.dart';
 
 class TasksScreen extends StatefulWidget {
-
-
   const TasksScreen({super.key});
 
   @override
@@ -28,13 +26,19 @@ class _TasksScreenState extends State<TasksScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
-                    child: Icon(Icons.list, size: 30,color: Colors.green,),
-                    backgroundColor: Colors.white,
-                    radius: 30,
+                  child: Icon(
+                    Icons.list,
+                    size: 30,
+                    color: Colors.green,
+                  ),
+                  backgroundColor: Colors.white,
+                  radius: 30,
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Text(
-                    'Todoey',
+                  'Todoey',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 50,
@@ -43,10 +47,7 @@ class _TasksScreenState extends State<TasksScreen> {
                 ),
                 Text(
                   '12 Tasks',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18
-                  ),
+                  style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ],
             ),
@@ -55,8 +56,10 @@ class _TasksScreenState extends State<TasksScreen> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 15),
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20)),
               ),
               child: TasksList(tasks),
             ),
@@ -67,21 +70,18 @@ class _TasksScreenState extends State<TasksScreen> {
         backgroundColor: Colors.green,
         foregroundColor: Colors.white,
         child: Icon(Icons.add),
-        onPressed: (){
+        onPressed: () {
           showModalBottomSheet(
               context: context,
-              builder: (context) => AddTaskScreen((newTaskTitle){
+              builder: (context) => AddTaskScreen((newTaskTitle) {
                 setState(() {
                   tasks.add(Task(name: newTaskTitle));
                 });
                 Navigator.pop(context);
-              }));
+              })
+          );
         },
       ),
     );
   }
 }
-
-
-
-
